@@ -1,6 +1,11 @@
 # JS8Call to Pushbullet
 
-Oh man, there's a lot to do in here. Let's just start with some unorganized thoughts so I don't forget them...
+## Notification Limit!
+Well, since writing this app, I found out that Pushbullet allow a limited number of pushes [(500) per month](https://docs.pushbullet.com/#push-limit) for free accounts. Just want to let you know that up front before you get too excited. I'd never run close to that limit before, but this morning, I got a notification to let me know I was approaching it. This means you'll probably want to 
+* be selective with which notification types you enable;
+* not run the app when you're in the shack / present at the keyboard / within earshot of audible notifications;
+* not leave the app running overnight while you're sleeping and not getting the notifications anyway.
+* Or you could sign up to a Pushbullet [Pro subscription (about $40USD/yr)](https://www.pushbullet.com/pro).
 
 ## JS8Call
 (http://js8call.com/) is an awesome amateur radio mode and program that allows many forms of messaging and more, on top of the very popular FT8.
