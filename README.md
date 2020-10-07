@@ -37,7 +37,9 @@ or compile the binary from the source code in this repository.
 Next, copy the config.yml file into the same directory as the application.
 Then fill in your callsign, any groups your in, your Pushbullet API token, and set up your notification settings.
 
-Run the app!
+After that, make sure you've enabled API access in JS8Call under File>Settings>Reporting>API> "Enable TCP Server API" & "Accept TCP Requests"
+
+Run this app!
 
 
 Further Notes

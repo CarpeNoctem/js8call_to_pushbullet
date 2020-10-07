@@ -1,0 +1,29 @@
+# Your callsign
+my_call: ""
+my_groups:
+- "@ALLCALL"
+
+# Your Pushbullet API Token
+pushbullet:
+  token: ""
+  # identity: "" # Not using. When used, causes Pushbullet app not to show notifications for some reason.
+
+# Where is js8call running?
+server:
+  host: "localhost"
+  port: "2442"
+
+# What do you want to get notified about?
+notifications:
+  cq: yes
+  heartbeat: no
+  heartbeat_ack: no #Heartbeat SNR reports for your station
+  direct_msg: yes # Any message or command addressed to you or your groups
+  callsign_spot: no # All callsign spots.
+  rig_tx: no # You may want to use this if you're not expecting your rig to transmit much or at all.
+  special_call_mentions: yes # if yes, will send alerts if other stations send to below special calls. otherwise will only alert if heard directly.
+  special_calls: # List of specific callsigns to alert on
+  - KN4CRD
+  - OH8STN
+  - VK2XOR
+  ignore_calls: [] # Don't send notifications for these callsigns
