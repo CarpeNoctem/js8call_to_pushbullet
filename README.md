@@ -1,11 +1,6 @@
 # JS8Call to Pushbullet
 
-## Notification Limit!
-Well, since writing this app, I found out that Pushbullet allow a limited number of pushes [(500) per month](https://docs.pushbullet.com/#push-limit) for free accounts. Just want to let you know that up front before you get too excited. I'd never run close to that limit before, but this morning, I got a notification to let me know I was approaching it. This means you'll probably want to 
-* be selective with which notification types you enable;
-* not run the app when you're in the shack / present at the keyboard / within earshot of audible notifications;
-* not leave the app running overnight while you're sleeping and not getting the notifications anyway.
-* Or you could sign up to a Pushbullet [Pro subscription (about $40USD/yr)](https://www.pushbullet.com/pro).
+New: See "Notification Limit!" below.
 
 ## JS8Call
 (http://js8call.com/) is an awesome amateur radio mode and program that allows many forms of messaging and more, on top of the very popular FT8.
@@ -53,3 +48,9 @@ Further Notes
 If you're planning on running off-the-grid or just don't want to use Pushbullet, then I suggest using the built-in sound notification options within JS8Call. I use this with a speaker plugged into my Raspberry Pi or with a laptop, but that doesn't help when I'm not within earshot, hence this app.
 Perhaps in the future, I can add the capability for this app to play sound files. That way, one could run it from a remote device with network connectivity to the JS8Call device so that you can get sound notifications remotely (but without Pushbullet or the Internet). You could also consider using a bluetooth speaker connected to the JS8Call device.
 
+## Notification Limit!
+Well, since writing this app, I found out that Pushbullet allow a limited number of pushes [(500) per month](https://docs.pushbullet.com/#push-limit) for free accounts. Just want to let you know that up front before you get too excited. I'd never run close to that limit before, but this morning, I got a notification to let me know I was approaching it. This means you'll probably want to 
+* be selective with which notification types you enable;
+* not run the app when you're in the shack / present at the keyboard / within earshot of audible notifications;
+* not leave the app running overnight while you're sleeping and not getting the notifications anyway.
+* Or you could sign up to a Pushbullet [Pro subscription (about $40USD/yr)](https://www.pushbullet.com/pro).
