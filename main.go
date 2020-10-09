@@ -14,7 +14,6 @@ import (
 	"time"
 )
 
-// TODO: Add CLI option to specify config file
 // TODO: Errs to stderr
 
 type Config struct {
@@ -64,7 +63,11 @@ type Js8Event struct {
 
 func main() {
 	var config Config
-	loadConfig("config.yml", &config)
+	config_file := "config.yml"
+	if len(os.Args) > 1 {
+		config_file = os.Args[1]
+	}
+	loadConfig(config_file, &config)
 
 	events := make(chan string, 20)
 
