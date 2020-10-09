@@ -142,18 +142,21 @@ func handleEvent(event Js8Event, config Config) {
 			if config.Notifications.Heartbeat {
 				go pushNotification("JS8Call Heartbeat", fmt.Sprintf("Call: %s SNR:%d QTH:%s", event.Params.FROM, event.Params.SNR, event.Params.GRID), config)
 			}
-		} else if event.Params.CMD == " SNR" || event.Params.CMD == " HEARTBEAT SNR" {
-			if event.Params.TO == config.MyCall && config.Notifications.HeartbeatAck { // Separating this and the above condition so that heartbeat acks don't trigger below new msg condition when heartbeat ack notifications disabled
+		} else if (event.Params.CMD == " SNR" || event.Params.CMD == " HEARTBEAT SNR") && event.Params.TO == config.MyCall {
+			if strings.Contains(event.Value, "MSG ID") && config.Notifications.DirectMsg { // Some heartbeat ACKs are special, as they let us know that station has a MSG for us. Let's not ignore that!
+				go pushNotification("JS8Call Pending Remote MSG", fmt.Sprintf("Stored MSG waiting on %s", event.Params.FROM), config)
+			}
+			if config.Notifications.HeartbeatAck { // Separating this and the above condition so that heartbeat acks don't trigger below new msg condition when heartbeat ack notifications disabled
 				go pushNotification("JS8Call Heartbeat ACK", fmt.Sprintf("My SNR:%s From %s their SNR:%d", event.Params.EXTRA, event.Params.FROM, event.Params.SNR), config)
 			}
-		} else if event.Params.TO == config.MyCall {
+		} else if event.Params.TO == config.MyCall && config.Notifications.DirectMsg {
 			replacement := fmt.Sprintf("%s: %s ", event.Params.FROM, event.Params.TO)
 			message := strings.Replace(event.Value, replacement, "", 1)
 			if len(message) > 100 {
 				message = fmt.Sprint(message[0:100], "...")
 			}
 			go pushNotification(fmt.Sprintf("JS8Call new msg from %s", event.Params.FROM), message, config)
-		} else if inSlice(event.Params.TO, config.MyGroups) {
+		} else if inSlice(event.Params.TO, config.MyGroups) && config.Notifications.DirectMsg { // Should I add a new option to en/disable Group msgs separately from Direct msgs?.. I just comment out any groups I want to temporarily ignore...
 			replacement := fmt.Sprintf("%s: %s ", event.Params.FROM, event.Params.TO)
 			message := strings.Replace(event.Value, replacement, "", 1)
 			if len(message) > 100 {
