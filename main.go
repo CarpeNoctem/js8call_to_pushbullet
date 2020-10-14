@@ -14,6 +14,7 @@ import (
 	"time"
 )
 
+// TODO: Fix parse error for log entry event
 // TODO: Errs to stderr
 
 type Config struct {
@@ -106,6 +107,7 @@ func parseEvents(events <-chan string, config Config) {
 		jsonErr := json.Unmarshal([]byte(rawEvent), &eventObject)
 		if jsonErr != nil {
 			println("Hmm, couldn't parse event:", jsonErr.Error())
+			fmt.Printf("Raw event was:%s\n", rawEvent)
 		}
 		//println("DEBUG: Parsed event of type", eventObject.Type)
 		//println("DEBUG: Command is:", eventObject.Params.CMD)
@@ -206,7 +208,7 @@ func pushNotification(title string, message string, config Config) {
 }
 
 // TODO: check for missing config items (namely mycall, api token, ...)
-// TODO: convirt config values to uppercase upon loading
+// TODO: convert config values to uppercase upon loading
 func loadConfig(filename string, config *Config) {
 	f, err := os.Open(filename)
 	if err != nil {
