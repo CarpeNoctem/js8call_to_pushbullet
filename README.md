@@ -26,7 +26,7 @@ Prerequesites
 
 Getting Started
 ---------------
-First, either download the application binary for your system from the releases here: https://github.com/CarpeNoctem/js8call_to_pushbullet/releases/tag/v0.1
+First, either download the application binary for your system from the releases here: https://github.com/CarpeNoctem/js8call_to_pushbullet/releases
 or compile the binary from the source code in this repository.
 
 Next, copy the config.yml file into the same directory as the application.
